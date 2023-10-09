@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.board.domain.Users;
 
-public interface UserRepository extends JpaRepository<Users, Integer>{
+public interface UserRepository extends JpaRepository<Users, String>{
 
 }
