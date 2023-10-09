@@ -1,15 +1,81 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>메인 페이지</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인 페이지</title>
+    <style>
+        /* 전체 페이지 스타일링 */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 헤더 스타일링 */
+        header {
+            background-color: rgb(13, 185, 242);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* 로고 스타일링 */
+        .logo {
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        /* 내용 컨테이너 스타일링 */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 섹션 스타일링 */
+        .section {
+            margin-bottom: 20px;
+        }
+
+        /* 버튼 스타일링 */
+        .btn {
+            background-color: rgb(13, 185, 242);
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-<br>
-<h3 align="center">게시판 프로그램</h3>
-<hr>
-<p align="center"><a href="loginView">로그인</a></p>
-<br>
-<hr>
+    <header>
+        <div class="logo">DASEUL BOARD</div>
+    </header>
+    <div class="container">
+
+        <div class="section">
+            <h2>Main Functions</h2>
+            <ul>
+                <li>Sign up, Sign in</li>
+                <li>Register, View, Edit, Delete Posts per Member</li>                
+            </ul>
+        </div>
+
+        <div class="section">
+            <a href="loginView" class="btn">Sign in</a>
+            <a href="signUpView" class="btn">Sign up</a>
+        </div>
+    </div>
 </body>
 </html>
