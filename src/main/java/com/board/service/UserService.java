@@ -6,7 +6,8 @@ public interface UserService {
 	
 	// 회원 등록
 	void makeUser(Users user);
-	// 로그인
+
+	// User 정보 체크
 	Users getUser(Users user);
 	
 }

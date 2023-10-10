@@ -26,12 +26,7 @@ public class UserController {
 	public String loginView() {
 		return "login";
 	}
-	
-	@GetMapping("/signUpView")
-	public String signUpView() {
-		return "signUp";
-	}
-	
+
 	@PostMapping("/login")
 	public String login(Users user, Model model) {
 		Users findUser = userService.getUser(user);
@@ -42,11 +37,14 @@ public class UserController {
 		return "redirect:loginView";		
 	}
 
-
-	
 	@GetMapping("/logout")
 	public String logout(SessionStatus status) {
 		status.setComplete();
 		return "redirect:/";
+	}
+	
+	@GetMapping("/signUpView")
+	public String signUpView() {
+		return "signUp";
 	}
 }

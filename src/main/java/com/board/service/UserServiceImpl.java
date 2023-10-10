@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
 		userRepository.save(user);
 	}
 	
-	// 로그인
+	// 회원 정보 체크
 	public Users getUser(Users user) {
 		Optional<Users> findUser = userRepository.findById(user.getId());
 		if(findUser.isPresent()) {
