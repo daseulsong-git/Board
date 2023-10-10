@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>게시 글 목록</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+
+        button {
+            background-color: rgb(13, 185, 242);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .signup-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .signup-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<center>
+<h1>Post List</h1>
+<h3><font color="blue" th:text="${session['user'].name}"></font>'s posts</h3>
+
+<table align="center" border="1" cellpadding="0" cellspacing="0" width="700">
+<tr>
+	<th bgcolor="gray" width="100">No</th>
+	<th bgcolor="gray" width="200">Title</th>
+	<th bgcolor="gray" width="150">Writer</th>
+	<th bgcolor="gray" width="150">Register Date</th>
+	<th bgcolor="gray" width="100">View Count</th>
+</tr>
+
+<tr th:each="board, state : ${boardList}">
+	<td th:text="${state.count}"/>
+	<td><a th:href="@{/getBoard(seq=${board.seq})}" th:text="${board.title}"></a></td>
+	<td th:text="${board.writer}"/>
+	<td th:text="${#dates.format(board.regDate, 'yyyy-MM-dd')}"/>
+	<td th:text="${board.cnt}"/>
+</tr>
+
+</table>
+<br>
+<button><a th:href="@{/insertBoardView}">New Post</a></button>
+<button><a th:href="@{/logout}">Sign out</a></button>
+</center>
+</body>
+</html>
+
+
+
+

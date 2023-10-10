@@ -15,7 +15,7 @@ public class UserServiceImpl implements UserService {
 	private UserRepository userRepository;
 	
 	// 회원 등록
-	public void makeUser(Users user) {
+	public void signUp(Users user) {
 		userRepository.save(user);
 	}
 	
@@ -27,5 +27,5 @@ public class UserServiceImpl implements UserService {
 		} 
 		return null;
 	}
-	}
+}
 
