@@ -33,17 +33,18 @@ public class BoardController {
 	
 	// 글 등록
 	@PostMapping("/insertBoard")
-	public String insertBoard(Board board) throws Exception {
+	public String insertBoard(Board board, Model model) throws Exception {
 		boardService.insertBoard(board);
-		// 리턴되는 View이름 앞에 "forward:"이나 "redirect:"을 붙이면 ViewResovler가 동작하지 않는다.
-		return "redirect:getBoardList";
+		model.addAttribute("boardList", boardService.findAllByWriter(board.getWriter()));
+		return "getBoardList";
 	}
 	
 	// 글 수정
 	@PostMapping("/updateBoard")
-	public String updateBoard(Board board){
+	public String updateBoard(Board board, Model model){
 		boardService.updateBoard(board);
-		return "redirect:getBoardList";
+		model.addAttribute("boardList", boardService.findAllByWriter(board.getWriter()));
+		return "getBoardList";
 	}
 	
 	// 글 삭제
@@ -53,14 +54,14 @@ public class BoardController {
 		return "forward:getBoardList";
 	}
 	
-	// 글 목록 조회
+	// 사용자 별 글 목록 조회
 	@RequestMapping("/getBoardList")
 	public String getBoardList(Users user, Model model) {
 		model.addAttribute("boardList", boardService.findAllByWriter(user.getId()));
 		return "getBoardList";
 	}
 	
-	// 글 목록 조회
+	// 사용자 별 글 목록 조회 (Back)
 	@RequestMapping("/getBoardListByWriter")
 	public String getBoardList(String writer, Model model) {
 		model.addAttribute("boardList", boardService.findAllByWriter(writer));
