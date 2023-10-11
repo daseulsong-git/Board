@@ -1,17 +1,11 @@
 package com.board.controller;
 
-import java.io.File;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.board.domain.Board;
 import com.board.domain.Users;
@@ -19,7 +13,6 @@ import com.board.service.BoardService;
 
 
 @Controller
-@SessionAttributes("board")
 public class BoardController {
 	
 	@Autowired

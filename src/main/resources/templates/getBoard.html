@@ -10,33 +10,33 @@
 
 <form action="updateBoard" method="post">
 
-<input type="hidden" name="seq" th:value="${board.seq}">
-
-<table border="1" cellpadding="0" cellspacing="0">
-<tr>
-<td bgcolor="orange" width="80">Title</td>
-<td><input name="title" type="text" th:value="${board.title}"></td>
-</tr>
-<tr>
-<td bgcolor="orange">Writer</td>
-<td th:text="${board.writer}" th:value="${board.writer}" readonly></td>
-</tr>
-<tr>
-<td bgcolor="orange">Content</td>
-<td><textarea name="content" cols="40" rows="10" th:text="${board.content}"></textarea></td>
-</tr>
-<tr>
-<td bgcolor="orange">Register Date</td>
-<td th:text="${board.regDate}"></td>
-</tr>
-<tr>
-<td bgcolor="orange">View Count</td>
-<td th:text="${board.cnt}"></td>
-</tr>
-<tr>
-<td colspan="2" align="center"><input type="submit" value="Edit Post"/></td>
-</tr>
-</table>
+	<input type="hidden" name="seq" th:value="${board.seq}">
+	
+	<table border="1" cellpadding="0" cellspacing="0">
+		<tr>
+			<td bgcolor="orange" width="80">Title</td>
+			<td><input name="title" type="text" th:value="${board.title}"></td>
+		</tr>
+		<tr>
+			<td bgcolor="orange">Writer</td>
+			<td><input name="writer" th:value="${session['user'].id}" size="50" readonly></td>
+		</tr>
+		<tr>
+			<td bgcolor="orange">Content</td>
+			<td><textarea name="content" cols="40" rows="10" th:text="${board.content}"></textarea></td>
+		</tr>
+		<tr>
+			<td bgcolor="orange">Register Date</td>
+			<td th:text="${board.regDate}"></td>
+		</tr>
+		<tr>
+			<td bgcolor="orange">View Count</td>
+			<td th:text="${board.cnt}"></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"><input type="submit" value="Edit Post"/></td>
+		</tr>
+	</table>
 </form>
 
 <br>
