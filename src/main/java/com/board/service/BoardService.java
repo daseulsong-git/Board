@@ -15,8 +15,8 @@ public interface BoardService {
 	// 글 삭제
 	void deleteBoard(Board board);
 	
-	// 글 목록 조회
-	List<Board> getBoardList(Board board);
+	// 사용자 별 글 목록 조회
+	List<Board> findAllByWriter(String writer);
 	
 	// 글 상세 조회
 	Board getBoard(Board board);

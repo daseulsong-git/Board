@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.board.domain.Board;
+import com.board.domain.Users;
 import com.board.service.BoardService;
 
 
@@ -54,11 +55,8 @@ public class BoardController {
 	
 	// 글 목록 조회
 	@RequestMapping("/getBoardList")
-	public String getBoardList(Board board, Model model) {
-		// Model 객체에 검색 결과를 등록해야 JSP화면에서 사용할 수 있다. 
-		model.addAttribute("boardList", boardService.getBoardList(board));
-		
-		// Controller가 문자열을 리턴하면 ViewResovler가 접두사, 접미사를 붙여준다. 
+	public String getBoardList(Users user, Model model) {
+		model.addAttribute("boardList", boardService.findAllByWriter(user.getId()));
 		return "getBoardList";
 	}
 	
