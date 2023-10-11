@@ -60,6 +60,13 @@ public class BoardController {
 		return "getBoardList";
 	}
 	
+	// 글 목록 조회
+	@RequestMapping("/getBoardListByWriter")
+	public String getBoardList(String writer, Model model) {
+		model.addAttribute("boardList", boardService.findAllByWriter(writer));
+		return "getBoardList";
+	}
+	
 	// 글 상세 조회
 	@GetMapping("/getBoard")
 	public String getBoard(Board board, Model model) {

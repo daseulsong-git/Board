@@ -12,6 +12,7 @@ import lombok.Data;
 @Data
 @Entity
 public class Board {
+	
 	@Id 				
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int seq;
@@ -23,9 +24,7 @@ public class Board {
 	
 	private String content;	
 	
-	//@Column(updatable = false)
 	private Date regDate = new Date();
 	
-	//@Column(updatable = false)
 	private int cnt;
 }
