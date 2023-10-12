@@ -20,4 +20,7 @@ public interface BoardService {
 	
 	// 글 상세 조회
 	Board getBoard(Board board);
+	
+	// 게시글 카운드
+	void updateCount(Integer seq);
 }

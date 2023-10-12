@@ -38,5 +38,9 @@ public class BoardServiceImpl implements BoardService {
 	public Board getBoard(Board board) {
 		return boardRepository.findById(board.getSeq()).get();
 	}
-
+	
+	// 게시글 카운트
+	public void updateCount(Integer seq) {
+		boardRepository.updateCount(seq);
+	}
 }

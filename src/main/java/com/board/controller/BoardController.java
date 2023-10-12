@@ -65,6 +65,7 @@ public class BoardController {
 	@GetMapping("/getBoard")
 	public String getBoard(Board board, Model model) {
 		model.addAttribute("board", boardService.getBoard(board));
+		boardService.updateCount(board.getSeq());
 		return "getBoard";
 	}
 	
