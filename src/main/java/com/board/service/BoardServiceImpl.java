@@ -25,8 +25,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	// 글 삭제
-	public void deleteBoard(Board board) {
-		boardRepository.delete(board);
+	public void deleteById(Integer seq) {
+		boardRepository.deleteById (seq);
 	}
 	
 	// 사용자 별 글 목록 조회

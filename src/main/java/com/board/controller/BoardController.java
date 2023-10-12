@@ -11,7 +11,6 @@ import com.board.domain.Board;
 import com.board.domain.Users;
 import com.board.service.BoardService;
 
-
 @Controller
 public class BoardController {
 	
@@ -41,10 +40,11 @@ public class BoardController {
 	}
 	
 	// 글 삭제
-	@PostMapping("/deleteBoard")
-	public String deleteBoard(Board board) {
-		boardService.deleteBoard(board);
-		return "forward:getBoardList";
+	@GetMapping("/deleteBoard")
+	public String deleteBoard(String seq, String writer, Model model) {
+		boardService.deleteById(Integer.parseInt(seq));
+		model.addAttribute("boardList", boardService.findAllByWriter(writer));
+		return "getBoardList";
 	}
 	
 	// 사용자 별 글 목록 조회

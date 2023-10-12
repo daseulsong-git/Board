@@ -41,7 +41,7 @@
 
 <br>
 <a th:href="@{/insertBoardView}">Add Post</a>&nbsp;&nbsp;&nbsp; 
-<a th:if="${session['user'].role == 'Admin'}" th:href="@{/deleteBoard(seq=${board.seq})}">Delete Post</a>&nbsp;&nbsp;&nbsp; 
+<a th:href="@{/deleteBoard(seq=${board.seq},writer=${session['user'].id})}">Delete Post</a>&nbsp;&nbsp;&nbsp;
 <a th:href="@{/getBoardListByWriter(writer=${session['user'].id})}">Post List</a>
 </center>
 </body>

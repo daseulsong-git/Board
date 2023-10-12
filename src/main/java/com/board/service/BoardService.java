@@ -13,7 +13,7 @@ public interface BoardService {
 	void updateBoard(Board board);
 	
 	// 글 삭제
-	void deleteBoard(Board board);
+	void deleteById(Integer seq);
 	
 	// 사용자 별 글 목록 조회
 	List<Board> findAllByWriter(String writer);
