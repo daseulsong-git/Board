@@ -19,4 +19,5 @@ public interface BoardRepository extends JpaRepository<Board, Integer> {
 	@Modifying
 	@Query("update Board b set b.cnt = b.cnt + 1 where b.seq = :seq")
 	void updateCount(Integer seq);
+
 }
