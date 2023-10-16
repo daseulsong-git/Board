@@ -1,5 +1,7 @@
 package com.board.service;
 
+import java.util.List;
+
 import com.board.domain.Users;
 
 public interface UserService {
@@ -7,7 +9,7 @@ public interface UserService {
 	// 회원 등록
 	void signUp(Users user);
 
-	// User 정보 체크
 	Users getUser(Users user);
+	
 	
 }
