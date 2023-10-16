@@ -11,6 +11,9 @@ import org.springframework.web.bind.support.SessionStatus;
 import com.board.domain.Users;
 import com.board.service.UserService;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 @Controller
 @SessionAttributes("user")
 public class UserController {
@@ -45,8 +48,28 @@ public class UserController {
 	}
 	
 	@PostMapping("/signUp")
-	public String signUp(Users user) {
+	public String signUp(Users user, Model model) {
+		
+//		String message = userService.validateDuplicateUser(user);
+//		
+//		if("".equals(message)) {
+//			userService.signUp(user);
+//			model.addAttribute("rtnMessage", new rtnMessage(message));
+//			return "redirect:loginView";
+//		}else{
+//			model.addAttribute("rtnMessage", new rtnMessage(message));
+//			return "redirect:signUpView";
+//		}
 		userService.signUp(user);
 		return "redirect:loginView";
 	}
+	
+//	@Data
+//	public class rtnMessage{
+//		private String message;
+//		
+//		public rtnMessage(String message) {
+//            this.message = message;
+//        }	
+//	}
 }

@@ -11,5 +11,6 @@ public interface UserService {
 
 	Users getUser(Users user);
 	
+	String validateDuplicateUser(Users user);
 	
 }

@@ -14,15 +14,16 @@ public class UserServiceImpl implements UserService {
 	
 	// 회원 등록
 	public void signUp(Users user) {
-		validateDuplicateUser(user); //중복 회원 확인
 		userRepository.save(user);
 	}
 	
 	// ID 중복 체크 (회원등록용)
-	private void validateDuplicateUser(Users user) {
+	public String validateDuplicateUser(Users user) {
         Optional<Users> findUser = userRepository.findById(user.getId());
         if (!findUser.isEmpty()) {
-            throw new IllegalStateException("이미 존재하는 회원입니다.");
+            return "이미 존재하는 회원입니다.";
+        }else {
+        	return "";
         }
     }
 	
