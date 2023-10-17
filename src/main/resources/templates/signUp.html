@@ -77,20 +77,18 @@
 			    <option th:each="roleOpt : ${T(com.board.domain.Role).values()}" 
 			        th:value="${roleOpt}" th:text="${roleOpt}"></option>
 			</select>
-            
-            <button type="submit" onClick="signUpAlert()">Resister</button>
+            <button type="submit" >Resister</button>
         </form>
         <div class="login-link">
             Are you already a member? <a href="loginView">Sign in</a>
         </div>
     </div>
-<!--
 <script th:inline="javascript">
-	function signUpAlert(){
-		var m = [[${rtnMessage?.message}]];
-		alert(m);
+	var message = [[${message}]];
+	if(message != null && message != ""){
+		alert(message);
 	}
 </script>
--->
+
 </body>
 </html >

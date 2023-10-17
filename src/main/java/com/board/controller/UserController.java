@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.board.domain.Users;
 import com.board.service.UserService;
@@ -48,28 +49,28 @@ public class UserController {
 	}
 	
 	@PostMapping("/signUp")
-	public String signUp(Users user, Model model) {
+	public String signUp(Users user, RedirectAttributes redirectAttributes) {
 		
-//		String message = userService.validateDuplicateUser(user);
-//		
-//		if("".equals(message)) {
-//			userService.signUp(user);
-//			model.addAttribute("rtnMessage", new rtnMessage(message));
-//			return "redirect:loginView";
-//		}else{
-//			model.addAttribute("rtnMessage", new rtnMessage(message));
-//			return "redirect:signUpView";
-//		}
-		userService.signUp(user);
-		return "redirect:loginView";
+		String message = userService.validateDuplicateUser(user);
+	
+		if("".equals(message)) {
+			userService.signUp(user);
+			redirectAttributes.addFlashAttribute("message", "Success to sign up");
+			return "redirect:loginView";
+		}else{
+			redirectAttributes.addFlashAttribute("message", message);
+			return "redirect:signUpView";
+		}
+//		userService.signUp(user);
+//		return "redirect:loginView";
 	}
 	
-//	@Data
-//	public class rtnMessage{
-//		private String message;
-//		
-//		public rtnMessage(String message) {
-//            this.message = message;
-//        }	
-//	}
+	@Data
+	public class rtnMessage{
+		private String message;
+		
+		public rtnMessage(String m) {
+            message = m;
+        }	
+	}
 }

@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
 	public String validateDuplicateUser(Users user) {
         Optional<Users> findUser = userRepository.findById(user.getId());
         if (!findUser.isEmpty()) {
-            return "이미 존재하는 회원입니다.";
+            return "ID already exists";
         }else {
         	return "";
         }
