@@ -8,12 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import com.board.domain.Users;
 import com.board.service.UserService;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
 
 @Controller
 @SessionAttributes("user")
