@@ -61,16 +61,5 @@ public class UserController {
 			redirectAttributes.addFlashAttribute("message", message);
 			return "redirect:signUpView";
 		}
-//		userService.signUp(user);
-//		return "redirect:loginView";
-	}
-	
-	@Data
-	public class rtnMessage{
-		private String message;
-		
-		public rtnMessage(String m) {
-            message = m;
-        }	
 	}
 }
